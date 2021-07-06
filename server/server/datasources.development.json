@@ -1,0 +1,32 @@
+{
+  "db": {
+    "host": "195.242.117.71",
+    "port": 5432,
+    "database": "vcidb",
+    "password": "66tgAjVqUnxBh2wtzVGH",
+    "name": "db",
+    "schema": "dev",
+    "user": "vci",
+    "debug": true,
+    "connector": "postgresql"
+  },
+  "emailServer": {
+    "name": "emailServer",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "mail.privateemail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "noreply@valuedao.com",
+          "pass": "[1ELZA*3A9TYb"
+        }
+      }
+    ],
+    "connector": "mail"
+  }
+}

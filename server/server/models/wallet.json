@@ -1,0 +1,39 @@
+{
+  "name": "wallet",
+  "plural": "wallets",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_wallet"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "uid": {
+      "type": "string",
+      "required": true
+    },
+    "action": {
+      "type": "string",
+      "required": true
+    },
+    "wallet": {
+      "type": "string",
+      "required": true
+    },
+    "browser": {
+      "type": "string"
+    },
+    "created": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

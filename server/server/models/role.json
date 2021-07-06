@@ -1,0 +1,74 @@
+{
+  "name": "role",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_role"
+    }
+  },
+  "properties": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "addRole": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "role",
+          "type": "object",
+          "required": true,
+          "description": "json with role params"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "returnId",
+          "type": "number",
+          "root": false,
+          "description": "id of newly added role"
+        }
+      ],
+      "description": "Add a new role",
+      "http": [
+        {
+          "path": "/",
+          "verb": "post"
+        }
+      ]
+    },
+    "getRoles": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "roles",
+          "type": "object",
+          "root": true,
+          "description": "json with roles"
+        }
+      ],
+      "description": "get list of roles",
+      "http": [
+        {
+          "path": "/",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

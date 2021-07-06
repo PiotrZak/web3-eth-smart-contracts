@@ -1,0 +1,13 @@
+<html>
+<p>Hello,<br /><br />Here is purchase confirmation of Value tokens.</p><span><b>Transaction hash: </b>
+    <%= transaction.hash %></span><br /><span><b>Date of operation: </b> <%= transaction.datetime %>
+    UTC</span><br /><span><b>Wallet: </b> <%= transaction.from %></span><br /><span><b>Price: </b> <%= transaction.value %>
+    ETH</span><br /><span><b>Value tokens amount: </b> <%= transaction.vdo %> VCO</span><br /><span><b>ETH/EUR rate: </b>
+    <%= transaction.ethusd %></span><br /><br />
+<p>You can find an immutable record of the transaction under the link: <a
+        href="https://etherscan.io/tx/<%= transaction.hash %>">https://etherscan.io/tx/<%= transaction.hash %></a></p>
+<p>This is an automated message, please do not reply to it.<br /> To contact Value, please forward this email to <a
+        href="mailto:info@value.one">info@value.one</a></p>
+<p>Greetings, <br />Value Company OÜ</p>
+
+</html>

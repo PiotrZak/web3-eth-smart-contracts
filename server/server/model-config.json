@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models",
+      "./endpoints"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "Email": {
+    "dataSource": "emailServer"
+  },
+  "user": {
+    "dataSource": "db",
+    "public": true
+  },
+  "role": {
+    "dataSource": "db",
+    "public": true
+  },
+  "address": {
+    "dataSource": "db",
+    "public": false
+  },
+  "accesskey": {
+    "dataSource": "db",
+    "public": true
+  },
+  "country": {
+    "dataSource": "db",
+    "public": true
+  },
+  "payment": {
+    "dataSource": null,
+    "public": true
+  },
+  "wallet": {
+    "dataSource": "db",
+    "public": true
+  },
+  "transaction": {
+    "dataSource": "db",
+    "public": true
+  },
+  "emailQueue": {
+    "dataSource": "db",
+    "public": false
+  },
+  "file_info": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Event": {
+    "dataSource": "db",
+    "public": true
+  },
+  "transfer": {
+    "dataSource": "db",
+    "public": true
+  }
+}

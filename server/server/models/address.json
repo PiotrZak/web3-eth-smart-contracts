@@ -1,0 +1,108 @@
+{
+  "name": "address",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_address"
+    }
+  },
+  "hidden": [
+    "create_date",
+    "modify_date"
+  ],
+  "scope": {
+    "include": [
+      "country",
+      "citizenship",
+      "countryHome",
+      "companyCountry"
+    ]
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "street": {
+      "type": "string"
+    },
+    "building_no": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "citizenship_id": {
+      "type": "string"
+    },
+    "apartment_no": {
+      "type": "string",
+      "default": ""
+    },
+    "post_office": {
+      "type": "string"
+    },
+    "country_id": {
+      "type": "number"
+    },
+    "country_home_id": {
+      "type": "number"
+    },
+    "create_date": {
+      "type": "date"
+    },
+    "modify_date": {
+      "type": "date"
+    },
+    "company_city": {
+      "type": "string"
+    },
+    "company_postcode": {
+      "type": "string"
+    },
+    "company_street": {
+      "type": "string"
+    },
+    "company_building_no": {
+      "type": "string"
+    },
+    "company_apartment_no": {
+      "type": "string"
+    },
+    "company_post_office": {
+      "type": "string"
+    },
+    "company_country_id": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "country": {
+      "type": "belongsTo",
+      "model": "country",
+      "foreignKey": "country_id"
+    },
+    "citizenship": {
+      "type": "belongsTo",
+      "model": "country",
+      "foreignKey": "citizenship_id"
+    },
+    "countryHome": {
+      "type": "belongsTo",
+      "model": "country",
+      "foreignKey": "country_home_id"
+    },
+    "companyCountry": {
+      "type": "belongsTo",
+      "model": "country",
+      "foreignKey": "company_country_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

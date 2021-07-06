@@ -1,0 +1,73 @@
+{
+  "restApiRoot": "/api",
+  "host": "0.0.0.0",
+  "port": 8090,
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false
+  },
+  "app": {
+    "kycValidationAmount": 2000
+  },
+  "urlConfig": {
+    "kycFormLink": "http://34.242.252.61:8090/page/kyc/",
+    "amlFormLink": "http://34.242.252.61:8090/page/aml/"
+  },
+  "coinfirm": {
+    "apiURL": "https://private-anon-c7b19d3b57-aml.apiary-mock.com",
+    "loginEmail": "example@mail.com",
+    "pass": "5h322{R9wp"
+  },
+  "bitgo": {
+    "mock": false,
+    "accessToken": "v2xd6f77388497e60740df600e09b4d0dcec14df67d9e80be59c421726893092620",
+    "env": "test",
+    "webhooks": {
+      "receivedBTCTransfer": {
+        "host": "http://34.242.252.61:8090",
+        "url": "/webhook/btc/check/",
+        "type": "transaction",
+        "numConfirmations": 2
+      },
+      "pendingBTCTransfer": {
+        "host": "http://34.242.252.61:8090",
+        "url": "/webhook/btc/info/",
+        "type": "pendingapproval"
+      }
+    }
+  },
+  "blockchain": {
+    "connectToRealContract": true,
+    "gasLimit": 300000,
+    "gasPrice": 3000000000,
+    "host": "https://rinkeby.infura.io/xJiuzKvbsogJZJHG9Rfz",
+    "wallet": "0xbB0A4C8Ee938C0B9485b5256E419C17B322bb083",
+    "password": "qazWSXedc",
+    "privateKey": "069ff809c939e1e55413d4d05bcd37c75ff46ce6cbb4dc58eb24bc9e61a4bcff",
+    "contractAddr": "0x46d6a5bbf9c622b9c7cb001b425ec55bb2abce58",
+    "checkTransactionAfter": 5000,
+    "checkTransactionRetryNo": 50,
+    "checkContractAddressEvery": 60000,
+    "checkContractAddressFromBlock": 0
+  },
+  "etherscan": {
+    "apiToken": "YPE1JBFJ1R34NG7I6ZNMM1H6GRUBK9BMVS",
+    "testnet": "rinkeby"
+  },
+  "krs": {
+    "usdPrice": 1.32
+  }
+}

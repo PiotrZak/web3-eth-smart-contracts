@@ -1,0 +1,73 @@
+{
+  "name": "file_info",
+  "plural": "file_info",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_file_info"
+    }
+  },
+  "properties": {
+    "container": {
+      "type": "string",
+      "required": true
+    },
+    "filename": {
+      "type": "string",
+      "required": true
+    },
+    "mimetype": {
+      "type": "string"
+    },
+    "file_type": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "user_id"
+    }
+  },
+  "acls": [],
+  "methods": {
+    "addFile": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "file",
+          "type": "object",
+          "required": true,
+          "description": "Object with file data and params to add"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Add file to database",
+      "http": [
+        {
+          "path": "/addFile",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

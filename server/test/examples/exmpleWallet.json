@@ -1,0 +1,93 @@
+{
+  "wallet": {
+    "_id": "5a83673d5931529d07fa8c82d2224fa5",
+    "id": "2NBjiNMyU8cD6Q7YB9jvxEGBuiVoaqMUk6E",
+    "label": "uid-hgr3j2vj",
+    "isActive": true,
+    "type": "safehd",
+    "freeze": {},
+    "adminCount": 1,
+    "disableTransactionNotifications": false,
+    "private": {
+      "keychains": [
+        {
+          "xpub": "xpub661MyMwAqRbcGDLGQq2SmERftU2LGataWtW5RzsfEztkpJnUENW74vkKyGFESswrLgGFFZ4VVTW3xP2mWGgHxs2mGws9AzxT1txDeaArxMP",
+          "path": "/0/0",
+          "params": {
+            "pubKey": "036e9c25d5d18c1b2fdd3d9a343df9cc363bf7f6291920413cfb6b0d1cb58160a4",
+            "chainCode": "a7cdfee83636a8bac13bcb3701eec8c106ca4e43d77cd230a626bcb4c457848c",
+            "depth": 0,
+            "index": 0,
+            "parentFingerprint": 0
+          }
+        },
+        {
+          "xpub": "xpub661MyMwAqRbcF8GL5oyJk69Fw1HwZXER3CQbmHozwuYhB8G4udAFYa3uL2Pa7hGDJ8tuMBZ4L2MpiHmLZVoK77cZb4166ZfQsVir7DKoeo5",
+          "path": "/0/0",
+          "params": {
+            "pubKey": "032cfdfd60c2e7b5f3aebd173b8df083a4da99327eec707c1f86851cd37ac437dd",
+            "chainCode": "3a96347c066a7ce073f7f6d0020f914a82dd4197276a87b359239350796e4d07",
+            "depth": 0,
+            "index": 0,
+            "parentFingerprint": 0
+          }
+        },
+        {
+          "xpub": "xpub661MyMwAqRbcEmTijSzxkMj3Lp9GPV6b1zaKDWC44QCPM6xvUhiCnFJU6T3Gb2dLWzuBp92VXL7S2TBPXVN5YQETDLUZVuhb5AziSF1kqNC",
+          "path": "/0/0",
+          "params": {
+            "pubKey": "03d6480d3482196cb888684c1df175e4b9b4bbe2a5e40b9f4a5a7fced0858174e4",
+            "chainCode": "168f5e8ab7b31e52c620de9557df26f39f9462339b3064dcbb10a16d942497c4",
+            "depth": 0,
+            "index": 0,
+            "parentFingerprint": 0
+          }
+        }
+      ]
+    },
+    "permissions": "admin,spend,view",
+    "admin": {
+      "users": [
+        {
+          "user": "5a7cca99ed1484df06bf73e472314de9",
+          "permissions": "admin,spend,view"
+        }
+      ]
+    },
+    "tags": [],
+    "approvalsRequired": 1,
+    "spendingAccount": true,
+    "pendingApprovals": [],
+    "balance": 0,
+    "instantBalance": 0,
+    "spendableConfirmedBalance": 0,
+    "confirmedBalance": 0,
+    "spendableBalance": 0,
+    "sent": 0,
+    "received": 0,
+    "unconfirmedSends": 0,
+    "unconfirmedReceives": 0
+  },
+  "userKeychain": {
+    "xpub": "xpub661MyMwAqRbcGDLGQq2SmERftU2LGataWtW5RzsfEztkpJnUENW74vkKyGFESswrLgGFFZ4VVTW3xP2mWGgHxs2mGws9AzxT1txDeaArxMP",
+    "xprv": "xprv9s21ZrQH143K3jFoJoVSQ6UwLSBqs8Aj9faUdcU3gfMmwWTKgqBrX8Rr7xY6jfCQzU8xz5R34PmTcqcvEwhd7Fs7EBkutNAYg664ZfkE46z",
+    "ethAddress": "0x2246f5967f39922e2024895b2dcf6879ac17e9f8",
+    "encryptedXprv": "{\"iv\":\"zDfWnA3IaEEr01LFBJZH/w==\",\"v\":1,\"iter\":10000,\"ks\":256,\"ts\":64,\"mode\":\"ccm\",\"adata\":\"\",\"cipher\":\"aes\",\"salt\":\"a6lI4Jbvtto=\",\"ct\":\"Xbpahes/B0Jber679UNSSVFbkeKqUKGyHWLBrM5CL2vYSxMOjVf+paxUiK/Qb9HhHhmMIcHC7RLaLEqGZhSgQQb4peMTaM+H/KT3iVos46ZECn/kYGreDr3OOG5gwYCmYOAiXESicNIHmYZada5PbyWho/lc4JI=\"}"
+  },
+  "backupKeychain": {
+    "xpub": "xpub661MyMwAqRbcF8GL5oyJk69Fw1HwZXER3CQbmHozwuYhB8G4udAFYa3uL2Pa7hGDJ8tuMBZ4L2MpiHmLZVoK77cZb4166ZfQsVir7DKoeo5",
+    "xprv": "xprv9s21ZrQH143K2eBrynSJNxCXNyTTA4WZfyUzxuQPPa1iJKvvN5qzzmjRUkhLtGZwVm9FrWw4qYi9rvds23haEH93dovkfhDzSDFshF9qaDq",
+    "ethAddress": "0x1cad15e35cc9a5f25dee5f9960cbf4e26bffba53"
+  },
+  "bitgoKeychain": {
+    "xpub": "xpub661MyMwAqRbcEmTijSzxkMj3Lp9GPV6b1zaKDWC44QCPM6xvUhiCnFJU6T3Gb2dLWzuBp92VXL7S2TBPXVN5YQETDLUZVuhb5AziSF1kqNC",
+    "ethAddress": "0xa68c2dc364cf0dee960865d2021d71793c138b69",
+    "isBitGo": true,
+    "path": "m"
+  },
+  "warning": "Be sure to backup the backup keychain -- it is not stored anywhere else!",
+  "walletPassword": "c61a3dab1aa08ed43ee01fff1e8d640d",
+  "user": {
+    "uid": "uid-hgr3j2vj"
+  }
+}

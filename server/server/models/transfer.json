@@ -1,0 +1,99 @@
+{
+  "name": "transfer",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_transfer"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true
+    },
+    "userId": {
+      "type": "number",
+      "required": true
+    },
+    "from": {
+      "type": "string",
+      "required": true
+    },
+    "to": {
+      "type": "string",
+      "required": true
+    },
+    "hash": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "number",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "modified": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "createInst": {
+      "accepts": [
+        {
+          "arg": "from",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "to",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "hash",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "value",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "success",
+          "type": "boolean",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

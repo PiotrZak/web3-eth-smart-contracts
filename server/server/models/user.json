@@ -1,0 +1,910 @@
+{
+  "name": "user",
+  "plural": "users",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_user"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "uid": {
+      "type": "string"
+    },
+    "role_id": {
+      "type": "number"
+    },
+    "accesskey_id": {
+      "type": "number"
+    },
+    "email": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "wallet": {
+      "type": "string"
+    },
+    "bought_tokens": {
+      "type": "number"
+    },
+    "bonus_tokens": {
+      "type": "number"
+    },
+    "kyc_status": {
+      "type": "string",
+      "default": "NOT_STARTED"
+    },
+    "legal_money": {
+      "type": "boolean"
+    },
+    "account_type": {
+      "type": "string"
+    },
+    "create_date": {
+      "type": "date"
+    },
+    "modify_date": {
+      "type": "date"
+    },
+    "address_id": {
+      "type": "number"
+    },
+    "sex": {
+      "type": "string"
+    },
+    "date_of_birth": {
+      "type": "string"
+    },
+    "money_comes_from": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "document_type": {
+      "type": "string"
+    },
+    "document_number": {
+      "type": "string"
+    },
+    "document_exp": {
+      "type": "string"
+    },
+    "document_release_date": {
+      "type": "string"
+    },
+    "taxusa": {
+      "type": "boolean"
+    },
+    "politician": {
+      "type": "boolean"
+    },
+    "country_tax_id": {
+      "type": "number"
+    },
+    "email_verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "activation_code": {
+      "type": "string"
+    },
+    "report": {
+      "type": "string"
+    },
+    "company": {
+      "type": "boolean",
+      "default": false
+    },
+    "company_nip": {
+      "type": "string"
+    },
+    "company_regon": {
+      "type": "string"
+    },
+    "company_krs": {
+      "type": "string"
+    },
+    "company_trade": {
+      "type": "string"
+    },
+    "company_start_date": {
+      "type": "string"
+    },
+    "company_type": {
+      "type": "string"
+    },
+    "company_name": {
+      "type": "string"
+    },
+    "criminal_respons": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "role": {
+      "type": "belongsTo",
+      "model": "role",
+      "foreignKey": "role_id"
+    },
+    "profile": {
+      "type": "hasOne",
+      "model": "profile",
+      "foreignKey": "user_id"
+    },
+    "accesskey": {
+      "type": "belongsTo",
+      "model": "accesskey",
+      "foreignKey": "accesskey_id"
+    },
+    "address": {
+      "type": "belongsTo",
+      "model": "address",
+      "foreignKey": "address_id"
+    },
+    "country_tax": {
+      "type": "belongsTo",
+      "model": "country",
+      "foreignKey": "country_tax_id"
+    },
+    "transactions": {
+      "type": "hasMany",
+      "model": "transaction",
+      "foreignKey": "user_id",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "files": {
+      "type": "hasMany",
+      "model": "file_info",
+      "foreignKey": "user_id"
+    },
+    "partners": {
+      "type": "hasMany",
+      "model": "accesskey",
+      "foreignKey": "uid",
+      "primaryKey": "uid"
+    }
+  },
+  "acls": [],
+  "methods": {
+    "count": {
+      "accepts": [
+        {
+          "arg": "filter",
+          "type": "object",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/count",
+          "verb": "get"
+        }
+      ]
+    },
+    "getAllUsers": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "filter",
+          "type": "object",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "users",
+          "type": "array",
+          "root": true,
+          "description": "Array of User data"
+        }
+      ],
+      "description": "Get all User data",
+      "http": [
+        {
+          "path": "/",
+          "verb": "get"
+        }
+      ]
+    },
+    "getProfile": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "profile",
+          "type": "object",
+          "root": true,
+          "description": "Profile object"
+        }
+      ],
+      "description": "Get user profile based on uid received from token",
+      "http": [
+        {
+          "path": "/getProfile",
+          "verb": "get"
+        }
+      ]
+    },
+    "getTokensInSubtree": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "uid",
+          "type": "string",
+          "required": true,
+          "description": "uid of user who will be tree root"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Get sum of tokens bought by subtree of users rooted in uid,",
+      "http": [
+        {
+          "path": "/getTokensBoughtInSubtree",
+          "verb": "get"
+        }
+      ]
+    },
+    "updateProfile": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "profile",
+          "type": "object",
+          "required": true,
+          "description": "User json object"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "profile",
+          "type": "object",
+          "root": true,
+          "description": "Profile object"
+        }
+      ],
+      "description": "Update user profile based on uid received from token",
+      "http": [
+        {
+          "path": "/updateProfile",
+          "verb": "put"
+        }
+      ]
+    },
+    "addUser": {
+      "accepts": [
+        {
+          "arg": "user",
+          "type": "object",
+          "required": true,
+          "description": "json with user data"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "returnStatus",
+          "type": "object",
+          "root": true,
+          "description": "return status"
+        }
+      ],
+      "description": "add a user",
+      "http": [
+        {
+          "path": "/register",
+          "verb": "post"
+        }
+      ]
+    },
+    "deleteMyAccount": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "returnStatus",
+          "type": "object",
+          "root": true,
+          "description": "return status"
+        }
+      ],
+      "description": "remove a user",
+      "http": [
+        {
+          "path": "/deleteMyAccount",
+          "verb": "post"
+        }
+      ]
+    },
+    "assignWallet": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "wallet",
+          "type": "string",
+          "required": true,
+          "description": "wallet address"
+        },
+        {
+          "arg": "browser",
+          "type": "string",
+          "required": true,
+          "description": "browser details"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "returnStatus",
+          "type": "object",
+          "root": true,
+          "description": "return status"
+        }
+      ],
+      "description": "assign wallet to user an contract",
+      "http": [
+        {
+          "path": "/assignWallet",
+          "verb": "put"
+        }
+      ]
+    },
+    "contact": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "message",
+          "type": "string",
+          "required": true,
+          "description": "message text"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "returnStatus",
+          "type": "object",
+          "root": true,
+          "description": "return status"
+        }
+      ],
+      "description": "send contact message to admin",
+      "http": [
+        {
+          "path": "/contact",
+          "verb": "post"
+        }
+      ]
+    },
+    "unassignWallet": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "wallet",
+          "type": "string",
+          "required": true,
+          "description": "wallet address"
+        },
+        {
+          "arg": "browser",
+          "type": "string",
+          "required": true,
+          "description": "browser details"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "returnStatus",
+          "type": "object",
+          "root": true,
+          "description": "return status"
+        }
+      ],
+      "description": "unassign wallet to user an contract",
+      "http": [
+        {
+          "path": "/unassignWallet",
+          "verb": "put"
+        }
+      ]
+    },
+    "login": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "user",
+          "type": "object",
+          "root": true,
+          "description": "login response"
+        }
+      ],
+      "description": "user login",
+      "http": [
+        {
+          "path": "/login",
+          "verb": "post"
+        }
+      ]
+    },
+    "loginFirebase": {
+      "accepts": [
+        {
+          "arg": "user",
+          "type": "object",
+          "required": true,
+          "description": "json with user data"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "user",
+          "type": "object",
+          "root": true,
+          "description": "login response"
+        }
+      ],
+      "description": "user login via firebase",
+      "http": [
+        {
+          "path": "/loginprovider",
+          "verb": "post"
+        }
+      ]
+    },
+    "refreshToken": {
+      "accepts": [
+        {
+          "arg": "user",
+          "type": "object",
+          "required": true,
+          "description": "json with expiring session token"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "user",
+          "type": "object",
+          "root": true,
+          "description": "json with new session token"
+        }
+      ],
+      "description": "refresh session token",
+      "http": [
+        {
+          "path": "/refreshToken",
+          "verb": "post"
+        }
+      ]
+    },
+    "logout": {
+      "accepts": [
+        {
+          "arg": "user",
+          "type": "object",
+          "required": true,
+          "description": "json with user data"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "returns",
+          "type": "object",
+          "root": true,
+          "description": "logout return status"
+        }
+      ],
+      "description": "logout from the app",
+      "http": [
+        {
+          "path": "/logout",
+          "verb": "post"
+        }
+      ]
+    },
+    "UpdateKYCData": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "dataset",
+          "type": "object",
+          "required": true,
+          "description": "User params to update in database and create address if not exists"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status object"
+        }
+      ],
+      "description": "Update datas fro KYC/AML verification",
+      "http": [
+        {
+          "path": "/updateKYCAML",
+          "verb": "post"
+        }
+      ]
+    },
+    "acceptKYC": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "user_id",
+          "type": "integer",
+          "required": true,
+          "description": "Object with user_id field"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status object"
+        }
+      ],
+      "description": "Accept KYC/AML",
+      "http": [
+        {
+          "path": "/acceptKYCAML",
+          "verb": "post"
+        }
+      ]
+    },
+    "denyKYC": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "user_id",
+          "type": "integer",
+          "required": true,
+          "description": "Object with user_id field"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status object"
+        }
+      ],
+      "description": "Deny KYC/AML",
+      "http": [
+        {
+          "path": "/denyKYCAML",
+          "verb": "post"
+        }
+      ]
+    },
+    "clarifyKYC": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "data",
+          "type": "object",
+          "required": true,
+          "description": "Object with user_id and message to user"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status object"
+        }
+      ],
+      "description": "Clarify KYC/AML",
+      "http": [
+        {
+          "path": "/clarifyKYCAML",
+          "verb": "post"
+        }
+      ]
+    },
+    "blockUser": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "user_id",
+          "type": "integer",
+          "required": true,
+          "description": "Object with user_id field"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status object"
+        }
+      ],
+      "description": "Block user",
+      "http": [
+        {
+          "path": "/blockUser",
+          "verb": "post"
+        }
+      ]
+    },
+    "unblockUser": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "user_id",
+          "type": "integer",
+          "required": true,
+          "description": "Object with user_id field"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status object"
+        }
+      ],
+      "description": "Unblock user",
+      "http": [
+        {
+          "path": "/unblockUser",
+          "verb": "post"
+        }
+      ]
+    },
+    "getUserDetails": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "uid",
+          "type": "string",
+          "required": true,
+          "description": "User id from firebase"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status object"
+        }
+      ],
+      "description": "Get user details (address, transactionHistory, walletsHistory) by uid",
+      "http": [
+        {
+          "path": "/getUserDetails",
+          "verb": "get"
+        }
+      ]
+    },
+    "getDatasToVerify": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "id",
+          "type": "number",
+          "required": true,
+          "description": "",
+          "http": {
+            "source": "path"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Get all required datas to verify user",
+      "http": [
+        {
+          "path": "/verify/:id",
+          "verb": "get"
+        }
+      ]
+    },
+    "partnersOfUser": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "uid",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "http": {
+            "source": "query"
+          }
+        },
+        {
+          "arg": "tokensFromTree",
+          "type": "boolean",
+          "required": false,
+          "description": "Set to true if you need tokens from subtree for users"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Get array of partners from user",
+      "http": [
+        {
+          "path": "/partners",
+          "verb": "get"
+        }
+      ]
+    },
+    "activateUser": {
+      "accepts": [
+        {
+          "arg": "activation_code",
+          "type": "string",
+          "required": true,
+          "description": "activation code"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "returnStatus",
+          "type": "object",
+          "root": true,
+          "description": "return object"
+        }
+      ],
+      "description": "activate user",
+      "http": [
+        {
+          "path": "/activateUser",
+          "verb": "post"
+        }
+      ]
+    },
+    "getTopInvestors": {
+      "accepts": [
+        {
+          "arg": "count",
+          "type": "number",
+          "required": false,
+          "description": "Count of investors",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "investorsList",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Get top investors by bought tokens",
+      "http": [
+        {
+          "path": "/getTopInvestors",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

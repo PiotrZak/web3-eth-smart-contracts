@@ -1,0 +1,222 @@
+{
+  "name": "transaction",
+  "plural": "transactions",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_transaction"
+    }
+  },
+  "scope": {
+    "include": "user"
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "user_id": {
+      "type": "number",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "default": "PENDING"
+    },
+    "tx_hash": {
+      "type": "string",
+      "required": true
+    },
+    "tokens_count": {
+      "type": "number",
+      "default": 0
+    },
+    "price": {
+      "type": "number",
+      "default": 0
+    },
+    "ethusd_rate": {
+      "type": "number",
+      "default": 0
+    },
+    "created": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "modified": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "user_id"
+    }
+  },
+  "acls": [],
+  "methods": {
+    "checkPending": {
+      "accepts": [],
+      "returns": [],
+      "description": "Check all pending transactions and summarize all tokens based on transaction to investor and partner if transaction success",
+      "http": []
+    },
+    "getTransactions": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "filter",
+          "type": "object",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status with transactions and count"
+        }
+      ],
+      "description": "Get transactions",
+      "http": [
+        {
+          "path": "/",
+          "verb": "get"
+        },
+        {
+          "path": "/",
+          "verb": "get"
+        }
+      ]
+    },
+    "canBuyTokens": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status obj with true/false "
+        }
+      ],
+      "description": "Check if user can buy tokens",
+      "http": [
+        {
+          "path": "/canBuyTokens",
+          "verb": "get"
+        }
+      ]
+    },
+    "checkUsersBalance": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Check if tokens balance on user wallet is this same as in database",
+      "http": [
+        {
+          "path": "/checkBalances",
+          "verb": "get"
+        }
+      ]
+    },
+    "checkWalletOfUser": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "user_id",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/checkWalletOfUser",
+          "verb": "get"
+        }
+      ]
+    },
+    "boughtTokensBlockNumbers": {
+      "accepts": [
+        {
+          "arg": "startBlock",
+          "type": "number",
+          "required": false,
+          "description": "Start block number",
+          "http": {
+            "source": "query"
+          }
+        },
+        {
+          "arg": "endBlock",
+          "type": "number",
+          "required": false,
+          "description": "End block number",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "res",
+          "type": "any",
+          "root": true,
+          "description": "Raport (csv)"
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/boughtTokensBetweenBlocks",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

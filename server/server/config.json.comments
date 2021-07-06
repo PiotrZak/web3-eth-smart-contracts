@@ -1,0 +1,44 @@
+{
+  "host": "0.0.0.0", //binding address
+  "port": 8090, //server address
+  "app": {
+    "kycValidationAmount": 2000 // amount switch to KYC for BTC/ETH >= kycValidationAmount
+  },
+  "urlConfig": {
+    "kycFormLink": "http://localhost/page/kyc/", // url to kyc form server will add {uid}/{idividualHash}
+    "amlFormLink": "http://localhost/page/aml/" // url to aml form server will add {uid}/{idividualHash}
+  },
+  "coinfirm": { // coinfirm api credentials
+    "apiURL": "https://private-anon-c7b19d3b57-aml.apiary-mock.com",// "apiURL": "https://api.coinfirm.io",
+    "loginEmail": "example@mail.com",// "loginEmail": "addfreedots@gmail.com",
+    "pass": "5h322{R9wp" // "pass": "!@QW#E12qw3e"
+  },
+  "bitgo": {
+    "mockBalance": true, // will mock balance //this is probably old version of "mock" and now is unused
+    "mock": true, //will mock whole account
+    "accessToken": "v2xd6f77388497e60740df600e09b4d0dcec14df67d9e80be59c421726893092620", // api credentials generated on bitgo website
+    "env": "test", // bitgo enviroment test/prod
+    "webhooks": { // bitgo webhook configuration
+      "receivedBTCTransfer": {
+        "host": "http://31.179.138.98:8090", //server address
+        "url": "/webhook/btc/check/", // path to endpoint
+        "type": "transaction", // event type
+        "numConfirmations": 2 // number of confirmation by nodes
+      },
+      "pendingBTCTransfer": {
+        "host": "http://31.179.138.98:8090",
+        "url": "/webhook/btc/info/",
+        "type": "pendingapproval"
+      }
+    }
+  },
+  "blockchain": { // contract api configuration
+    "connectToRealContract": false, // will mock connection to contract
+    "gasLimit": 300000,
+    "host": "https://rinkeby.infura.io/",
+    "wallet": "0x5b3284c6b14a2b24ded7451a7e59f980f73413a0",
+    "password": "sftKQB@j6b:LHMU+G?1R",
+    "privateKey": "bd12d3239140ebded2f07c723fb3ba5b7abe934476d4fb605668d0e88b1d61c7",
+    "contractAddr": "0x9172bcecb547b82cc77ad6a19608bdca1f35712f"
+  }
+}

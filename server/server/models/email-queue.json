@@ -1,0 +1,74 @@
+{
+  "name": "emailQueue",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_email_queue"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "params": {
+      "type": "object",
+      "required": true
+    },
+    "html": {
+      "type": "any"
+    },
+    "template": {
+      "type": "string",
+      "default": null
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "PENDING"
+    },
+    "created": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "modified": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "addEmail": {
+      "accepts": [
+        {
+          "arg": "params",
+          "type": "object",
+          "required": true,
+          "http": {
+            "source": "form"
+          }
+        },
+        {
+          "arg": "html",
+          "type": "any",
+          "required": false,
+          "description": "Parsed message as HTML or text"
+        }
+      ],
+      "returns": [],
+      "description": "Add email message to queue",
+      "http": []
+    },
+    "sendMails": {
+      "accepts": [],
+      "returns": [],
+      "description": "Send email messages",
+      "http": []
+    }
+  }
+}

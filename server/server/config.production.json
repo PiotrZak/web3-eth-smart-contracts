@@ -1,0 +1,38 @@
+{
+    "host": "0.0.0.0",
+    "port": 8090,
+    "blockchain": {
+      "connectToRealContract": true,
+      "gasLimit": 3000000,
+      "gasPrice": 3000000,
+      "host": "https://mainnet.infura.io/v3/770fa72743a249e093e509f60d2e8eb7",
+      "wallet": "0x3Ad0aBf224B0DA9658de926fA9cE95EDbdcDf354",
+      "privateKey": "4f746bc376aec906f5e1b9515ceb95f526b52a34edd1884a6f07914b70e9a4bb",
+      "contractAddr": "0x37CAC6e8BBD09b24DDc33a851ab438FC1451F946",
+      "tokenAddr": "0x589ad398C88ede735dD429F7792805E25fB69C2f",
+      "checkTransactionAfter": 5000,
+      "checkTransactionRetryNo": 120,
+      "checkContractAddressAfterBoot": 5000,
+      "checkContractAddressEvery": 50000,
+      "checkContractAddressFromBlock": 0,
+      "updateRatesInContractAfterBoot": 60000,
+      "updateRatesInContractEvery": 3600000
+    },
+    "etherscan": {
+      "apiUrl": "https://api.etherscan.io/api",
+      "apiToken": "YPE1JBFJ1R34NG7I6ZNMM1H6GRUBK9BMVS",
+      "testnet": "mainnet"
+    },
+    "bitstamp": {
+      "apiUrl": "https://www.bitstamp.net/api/v2/ticker/",
+      "maxTime": 300000
+    },
+    "coinfirm": {
+      "apiURL": "https://api.coinfirm.io",
+      "loginEmail": "admin@valuedao.com",
+      "pass": "@CoinfirM@03",
+      "minValidScore": 33
+    },
+    "adminEmail": "admin@valuedao.com"
+  }
+

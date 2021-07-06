@@ -1,0 +1,38 @@
+{
+    "db": {
+      "host": "localhost",
+      "port": 5432,
+      "database": "valuedaodb",
+      "password": "Wmc9^JN:/8Si+WB=C+JK;/@zCaoCddHK",
+      "name": "db",
+      "schema": "prod",
+      "user": "valuedao",
+      "debug": true,
+      "connector": "postgresql"
+    },
+    "filestore": {
+      "name": "filestore",
+      "connector": "loopback-component-storage",
+      "provider": "filesystem",
+      "root": "/"
+    },
+    "emailServer": {
+      "name": "emailServer",
+      "transports": [
+        {
+          "type": "smtp",
+          "host": "mail.privateemail.com",
+          "secure": true,
+          "port": 465,
+          "tls": {
+            "rejectUnauthorized": false
+          },
+          "auth": {
+            "user": "noreply@valuedao.com",
+            "pass": "[1ELZA*3A9TYb"
+          }
+        }
+      ],
+      "connector": "mail"
+    }
+  }

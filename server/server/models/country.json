@@ -1,0 +1,46 @@
+{
+  "name": "country",
+  "plural": "countries",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_country"
+    }
+  },
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "getAllCountries": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "countries",
+          "type": "array",
+          "root": true,
+          "description": "Array of Countries"
+        }
+      ],
+      "description": "Get all Countries",
+      "http": [
+        {
+          "path": "/",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

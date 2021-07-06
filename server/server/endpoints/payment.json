@@ -1,0 +1,124 @@
+{
+  "name": "payment",
+  "base": "Model",
+  "idInjection": false,
+  "http": {
+    "path": "/payment"
+  },
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "getEthUsdRate": {
+      "accepts": [],
+      "returns": {
+          "arg": "data",
+          "type": "number",
+          "root": true
+      },
+      "description": "Get EthUsd rate",
+      "http": [
+        {
+          "path": "/getEthUsdRate",
+          "verb": "get"
+        }
+      ]
+    },
+    "getPayment": {
+      "accepts": [
+        {
+          "arg": "filter",
+          "type": "object",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": {
+          "arg": "data",
+          "type": "object",
+          "root": true
+      },
+      "description": "get list to payment",
+      "http": [
+        {
+          "path": "/",
+          "verb": "get"
+        }
+      ]
+    },
+    "transactionInfo": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "info",
+          "type": "object",
+          "required": true
+        }
+      ],
+      "returns": {
+      },
+      "description": "send email with transaction details to admin and user",
+      "http": [
+        {
+          "path": "/transactionInfo",
+          "verb": "post"
+        }
+      ]
+    },
+    "getPaymentDetails": {
+      "accepts": [
+        {
+          "arg": "uid",
+          "type": "string",
+          "required": true,
+          "description": "User uid",
+          "http": {
+            "source": "path"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "data",
+        "type": "object",
+        "root": true
+      },
+      "description": "get details to payment",
+      "http": [
+        {
+          "path": "/:uid/details",
+          "verb": "get"
+        }
+      ]
+    },
+    "received": {
+      "accepts": [
+        {
+          "arg": "uid",
+          "type": "string",
+          "required": true,
+          "description": "User uid",
+          "http": {
+            "source": "path"
+          }
+        }
+      ],
+      "returns": [],
+      "description": "Mark payment as received",
+      "http": [
+        {
+          "path": "/:uid/received",
+          "verb": "put"
+        }
+      ]
+    }
+  }
+}

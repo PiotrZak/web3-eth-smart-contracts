@@ -1,0 +1,245 @@
+{
+  "name": "accesskey",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_accesskey"
+    }
+  },
+  "scope": {
+    "include": [
+      "activator",
+      "creator"
+    ]
+  },
+  "properties": {
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "activated_date": {
+      "type": "number"
+    },
+    "uid": {
+      "type": "string"
+    },
+    "mailed": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "activator": {
+      "type": "hasOne",
+      "model": "user",
+      "foreignKey": "accesskey_id",
+      "primaryKey": "id"
+    },
+    "creator": {
+      "type": "hasOne",
+      "model": "user",
+      "foreignKey": "uid",
+      "primaryKey": "uid"
+    }
+  },
+  "acls": [],
+  "methods": {
+    "addKeys": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "numOfKeys",
+          "type": "any",
+          "required": true,
+          "description": "Number of keys to generate"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Return status"
+        }
+      ],
+      "description": "Add key to database",
+      "http": [
+        {
+          "path": "/addKeys",
+          "verb": "post"
+        }
+      ]
+    },
+    "getAvailableKeys": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "filter",
+          "type": "object",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "keys",
+          "type": "array",
+          "root": true,
+          "description": "Array with available keys"
+        }
+      ],
+      "description": "Get all available keys",
+      "http": [
+        {
+          "path": "/getKeys",
+          "verb": "get"
+        }
+      ]
+    },
+    "getMyKeys": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "keys",
+          "type": "array",
+          "root": true,
+          "description": "Array with available keys"
+        }
+      ],
+      "description": "Get all available keys",
+      "http": [
+        {
+          "path": "/getMyKeys",
+          "verb": "get"
+        }
+      ]
+    },
+    "switchMailed": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "key",
+          "type": "string",
+          "root": true,
+          "description": "Key to use"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Return status"
+        }
+      ],
+      "description": "Switch mailed parameter",
+      "http": [
+        {
+          "path": "/switchMailed",
+          "verb": "put"
+        }
+      ]
+    },
+    "getMypartners": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Return status"
+        }
+      ],
+      "description": "Get all partners with email and num of bought tokens",
+      "http": [
+        {
+          "path": "/getMypartners",
+          "verb": "get"
+        }
+      ]
+    },
+    "useKey": {
+      "accepts": [
+        {
+          "arg": "key",
+          "type": "string",
+          "root": true,
+          "description": "Key to use"
+        },
+        {
+          "arg": "uid",
+          "type": "string",
+          "root": true,
+          "description": "Unique user key to verify"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Return status"
+        }
+      ],
+      "description": "Set key as used",
+      "http": [
+        {
+          "path": "/useKey",
+          "verb": "put"
+        }
+      ]
+    },
+    "verifyAccess": {
+      "accepts": [
+        {
+          "arg": "verifyObj",
+          "type": "object",
+          "root": true,
+          "description": "Object from localStorage in front app"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "object",
+          "root": true,
+          "description": "Status"
+        }
+      ],
+      "description": "Verify access to site",
+      "http": [
+        {
+          "path": "/verify",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

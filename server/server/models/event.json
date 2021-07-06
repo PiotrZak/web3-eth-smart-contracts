@@ -1,0 +1,234 @@
+{
+  "name": "Event",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "vci_event"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "place": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    },
+    "created": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "modified": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "getAll": {
+      "accepts": [
+        {
+          "arg": "filter",
+          "type": "object",
+          "required": false,
+          "description": "Filter",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "events",
+          "type": "array",
+          "root": false,
+          "description": "evenst list"
+        },
+        {
+          "arg": "success",
+          "type": "boolean",
+          "root": false,
+          "description": "Success as true or false"
+        }
+      ],
+      "description": "Get all instances",
+      "http": [
+        {
+          "path": "/",
+          "verb": "get"
+        }
+      ]
+    },
+    "createEvent": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "name",
+          "type": "string",
+          "required": true,
+          "description": "Event name",
+          "http": {
+            "source": "form"
+          }
+        },
+        {
+          "arg": "date",
+          "type": "date",
+          "required": true,
+          "description": "Event date",
+          "http": {
+            "source": "form"
+          }
+        },
+        {
+          "arg": "place",
+          "type": "string",
+          "required": true,
+          "description": "Event place",
+          "http": {
+            "source": "form"
+          }
+        },
+        {
+          "arg": "url",
+          "type": "string",
+          "required": false,
+          "description": "Url to event tickets",
+          "http": {
+            "source": "form"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "success",
+          "type": "boolean",
+          "root": false,
+          "description": "Success true or false"
+        },
+        {
+          "arg": "message",
+          "type": "string",
+          "root": false,
+          "description": "On success false return message"
+        }
+      ],
+      "description": "Create instance",
+      "http": [
+        {
+          "path": "/",
+          "verb": "post"
+        }
+      ]
+    },
+    "updateEvent": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "attributes",
+          "type": "object",
+          "required": true,
+          "description": "Object with attributes to change",
+          "http": {
+            "source": "form"
+          }
+        },
+        {
+          "arg": "id",
+          "type": "number",
+          "required": true,
+          "description": "event id",
+          "http": {
+            "source": "path"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "success",
+          "type": "boolean",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "message",
+          "type": "string",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "Update event instance",
+      "http": [
+        {
+          "path": "/:id",
+          "verb": "put"
+        }
+      ]
+    },
+    "removeEvent": {
+      "accepts": [
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        },
+        {
+          "arg": "id",
+          "type": "number",
+          "required": true,
+          "description": "Event id",
+          "http": {
+            "source": "path"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "success",
+          "type": "boolean",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "message",
+          "type": "string",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "Remove instance",
+      "http": [
+        {
+          "path": "/:id",
+          "verb": "delete"
+        }
+      ]
+    }
+  }
+}

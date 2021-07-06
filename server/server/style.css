@@ -1,0 +1,45 @@
+h1{
+    font-size:36px;
+    font-family:Gilmer-Bold;
+}
+
+p{
+    font-size:18px;
+    font-family:Gilmer;
+}
+
+.container{
+    width:780px;
+    min-height:480px;
+    height:600px;
+    background-image: linear-gradient(to right, #f5c7c8, #c2a7d8 50%, #9db5fd);
+}
+
+.mail-template{
+    width:700px;
+    min-height:400px;
+    height:520px;
+    background-color:#F3FBFF;
+    padding:20px 20px 20px 20px;
+    margin:20px 20px 20px 20px;
+    position:absolute;
+}
+
+.button {
+    height: 40px;
+    width: 200px;
+    border-radius: 20px;
+    font-size: 11px;
+    line-height: 40px;
+    letter-spacing: -0.21px;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration:none !important;
+    font-family:Gilmer;
+}
+
+.button-primary{background:#7DA6E8;color:#FFFFFF;border:1px transparent}
+
+.button-primary:hover{background:#6797e4}

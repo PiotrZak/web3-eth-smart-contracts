@@ -1,0 +1,32 @@
+{
+  "host": "0.0.0.0",
+  "port": 8090,
+  "app": {
+    "kycValidationAmount": 2000
+  },
+  "round": {
+    "name": "test",
+    "limitUSD": 0,
+    "limitEUR": 0,
+    "limitETH": 0,
+    "limitBTC": 0
+  },
+  "blockchain": {
+    "connectToRealContract": false,
+    "gasLimit": 300000,
+    "host": "https://rinkeby.infura.io/xJiuzKvbsogJZJHG9Rfz",
+    "wallet": "0xbB0A4C8Ee938C0B9485b5256E419C17B322bb083",
+    "password": "qazWSXedc",
+    "privateKey": "069ff809c939e1e55413d4d05bcd37c75ff46ce6cbb4dc58eb24bc9e61a4bcff",
+    "contractAddr": "0x46d6a5bbf9c622b9c7cb001b425ec55bb2abce58",
+    "checkTransactionAfter": 5000,
+    "checkTransactionRetryNo": 50
+  },
+  "bitstamp": {
+    "mockedBtcUsd": 6758.00,
+    "mockedEurUsd": 1.23366,
+    "mockedBtcEur": 5478.90,
+    "mockedEthEur": 324.73,
+    "mockedEthUsd": 399.75
+  }
+}

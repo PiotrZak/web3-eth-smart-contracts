@@ -1,0 +1,224 @@
+{
+  "wallet": {
+    "_id": "5a8cacd5afa7368e07c465ccf504eea5",
+    "id": "2NCeRPRAscAuNL9XomzTY1CEQJJ5owkS5T1",
+    "label": "03db41a2-7fd8-4d8b-a53e-f02e89e020f3",
+    "isActive": true,
+    "type": "safehd",
+    "freeze": {},
+    "adminCount": 1,
+    "disableTransactionNotifications": false,
+    "private": {
+      "keychains": [
+        {
+          "xpub": "xpub661MyMwAqRbcFbMCn5in8dh2FJkk91fKdnEeuQFeXa2fHnwS4BmsLxP4AgTEyd9Nn1fw9aFCLndvDvHyKdhc8SWD6etgV94JbwqY9cafVNd",
+          "path": "/0/0",
+          "params": {
+            "pubKey": "02cbeaf9321debe2156a7732d4ad3a6288993395ac2649c07d45b63344cea66c8e",
+            "chainCode": "697d54edc8c283001296f1d4dd54cc939e83e2577f145b1bdcdb014c1df8f043",
+            "depth": 0,
+            "index": 0,
+            "parentFingerprint": 0
+          }
+        },
+        {
+          "xpub": "xpub661MyMwAqRbcGaCehpnEfyT8G42CKyXrdK6tnUYTppg1vPH9WRkxHsAH1kksTfetrazUJXQQCjAygj5ByG38Ld3nW7aswwTqXhHnUkFjD7G",
+          "path": "/0/0",
+          "params": {
+            "pubKey": "02d70a5f86ba19c8d68b2a56b1b23393ffb8864a320149197cb5b59758099dd9a2",
+            "chainCode": "cbf1af599c33a3bb414dbd1393ddcd05191a1fd6afdf6075b356e1e03e6ed66b",
+            "depth": 0,
+            "index": 0,
+            "parentFingerprint": 0
+          }
+        },
+        {
+          "xpub": "xpub661MyMwAqRbcFTwhUPsLRMtLiZMBZh9eypphXGZQEUjjDk3Pr5367wGxQi1a2wFskPgXZP3HG4tiYSu7xj3yT3BkyHxzPkoYaLmGyhP1iYV",
+          "path": "/0/0",
+          "params": {
+            "pubKey": "036b6fd35fb6e18c6a8800e6131fb4a73f13e793fed10eec9abd3edc360db53125",
+            "chainCode": "5caa5df57c2c8813bdcbe3fa3d6d67320abd8b7fe2f5ee4d22bfa324533a6fb0",
+            "depth": 0,
+            "index": 0,
+            "parentFingerprint": 0
+          }
+        }
+      ]
+    },
+    "permissions": "admin,spend,view",
+    "admin": {
+      "users": [
+        {
+          "user": "5a7cca99ed1484df06bf73e472314de9",
+          "permissions": "admin,spend,view"
+        }
+      ]
+    },
+    "tags": [],
+    "approvalsRequired": 1,
+    "spendingAccount": true,
+    "pendingApprovals": [],
+    "balance": 0,
+    "instantBalance": 0,
+    "spendableConfirmedBalance": 0,
+    "confirmedBalance": 0,
+    "spendableBalance": 0,
+    "sent": 0,
+    "received": 0,
+    "unconfirmedSends": 0,
+    "unconfirmedReceives": 0
+  },
+  "userKeychain": {
+    "xpub": "xpub661MyMwAqRbcFbMCn5in8dh2FJkk91fKdnEeuQFeXa2fHnwS4BmsLxP4AgTEyd9Nn1fw9aFCLndvDvHyKdhc8SWD6etgV94JbwqY9cafVNd",
+    "xprv": "xprv9s21ZrQH143K37Gjg4BmmVkHhGvFjYwUGZK471r2yEVgQzcHWeTcoA4aKRPdhyP2UoRnDewSPBezjnZN2jTfbdDfYf46YnSkRPFKJZ7HPqG",
+    "ethAddress": "0xb1f5f1eb8838e1e840def9ec9962921150658a47",
+    "encryptedXprv": "{\"iv\":\"XqiwHRSoJo+g7JfLuyDtOQ==\",\"v\":1,\"iter\":10000,\"ks\":256,\"ts\":64,\"mode\":\"ccm\",\"adata\":\"\",\"cipher\":\"aes\",\"salt\":\"L1pT3d2nHig=\",\"ct\":\"KbmJMy+Pxv6KpOq1SNibHfDuVRx1XWtP/vps1xdHx8gSEdxuC3mKFzJOZB5HKEHTZldVUTOpIUWK40lPhtXAMs/JURWQeoQgFz1CPP9IU6caoSeyeKLJAyDHcTHE0Zzi2a2guxs2hqXmVM8SOJn42dvnX3XZA/U=\"}"
+  },
+  "backupKeychain": {
+    "xpub": "xpub661MyMwAqRbcGaCehpnEfyT8G42CKyXrdK6tnUYTppg1vPH9WRkxHsAH1kksTfetrazUJXQQCjAygj5ByG38Ld3nW7aswwTqXhHnUkFjD7G",
+    "xprv": "xprv9s21ZrQH143K468BboFEJqWPi2BhvWp1G6BHz68rGV933awzxtShk4qoAVyhEmmvpqCcczstFp24kwgJh3k5yTCRdPZSP4nttBf4HcHw4Gb",
+    "ethAddress": "0x8be4c3d19963ae5d4f29b3081c1bb94040ed4730"
+  },
+  "bitgoKeychain": {
+    "xpub": "xpub661MyMwAqRbcFTwhUPsLRMtLiZMBZh9eypphXGZQEUjjDk3Pr5367wGxQi1a2wFskPgXZP3HG4tiYSu7xj3yT3BkyHxzPkoYaLmGyhP1iYV",
+    "ethAddress": "0xa4431c75f2c6e553070d3515741c502ebd4fc675",
+    "isBitGo": true,
+    "path": "m"
+  },
+  "warning": "Be sure to backup the backup keychain -- it is not stored anywhere else!",
+  "walletPassword": "83677e34e410bf613fad37677143132d",
+  "user": {
+    "uid": "03db41a2-7fd8-4d8b-a53e-f02e89e020f3",
+    "role_id": 2,
+    "email": "03db41a2-7fd8-4d8b-a53e-f02e89e020f3@email.com",
+    "username": "username",
+    "enabled": null,
+    "firstname": null,
+    "lastname": null,
+    "password": null,
+    "wallet": null,
+    "avatar_url": null,
+    "create_date": "2018-02-20T23:18:41.419Z",
+    "modify_date": null,
+    "id": 62,
+    "address_id": null,
+    "profile": {
+      "user_id": 62,
+      "profile_type": null,
+      "currency": "BTC",
+      "amount": "1999.98000000",
+      "kyc_link": null,
+      "kyc_hash": null,
+      "kyc_status": null,
+      "aml_link": "http://localhost/page/aml/03db41a2-7fd8-4d8b-a53e-f02e89e020f3/099b758d-f55b-42dd-8da4-4a22e5aef95b",
+      "aml_hash": "099b758d-f55b-42dd-8da4-4a22e5aef95b",
+      "aml_status": "APPROVED",
+      "aml_report_cscore": 33,
+      "aml_report_content": {
+        "report_id": "b3843d7501e0d58f0312733ccc0c9c25d9186236345237beb218d0e9e7ab4e72",
+        "report_type": "basic",
+        "report_time": "2018-01-03T11:14:56+0000",
+        "report_block_height": 502520,
+        "address": "1DtocYoUiQD5vXgYnohCW5ZAqSATvtn4qP",
+        "address_type": "BTC",
+        "address_subtype": "P2PKH",
+        "recommendation": 0,
+        "cscore": 33,
+        "multisig": true,
+        "whitelist": true,
+        "cc_balance": 12.10129,
+        "usd_balance": 0,
+        "usd_exchange_rate": 1092.12,
+        "profiles": [
+          {
+            "profile": 158,
+            "cname": "Service with no KYC address"
+          },
+          {
+            "profile": 151,
+            "cname": "Digital currencies exchange address"
+          },
+          {
+            "profile": 133,
+            "cname": "Not extensively used address"
+          }
+        ],
+        "cscore_info": [
+          {
+            "cat": "Illicit activity risk",
+            "cscore_local": 75.625,
+            "flag": 30
+          },
+          {
+            "cat": "Industry risk",
+            "cscore_local": 8.25,
+            "flag": 23
+          },
+          {
+            "cat": "Transactions with distinctive patterns",
+            "cscore_local": 3,
+            "flag": 252
+          },
+          {
+            "cat": "Transactions impeding track of funds",
+            "cscore_local": 1.25,
+            "flag": 114
+          }
+        ]
+      },
+      "payment_status": null,
+      "flow_status": "BTC_LESS_AML_LINK_SENT",
+      "addr_receive_eth": "0x32Be343B94f860124dC4fEe278FDCBD38C102D88",
+      "addr_send_eth": null,
+      "addr_send_btc": "2MtUd1o27Ag29JkJaKLrTr87fDwWVNrYBvX",
+      "wallet_id": null,
+      "wallet_data": null,
+      "ctrc_tx_hash": null,
+      "ctrc_tx_status": null,
+      "addr_verify_doc": null,
+      "full_name": null,
+      "company_name": null,
+      "company_reg_id": null,
+      "country_id": null,
+      "create_date": "2018-02-20T23:18:41.437Z",
+      "modify_date": "2018-02-20T23:18:41.392Z",
+      "id": 61
+    }
+  },
+  "webhooks": [
+    {
+      "id": "5a8cacd7afa7368e07c465dea2cb81e0",
+      "created": "2018-02-20T23:18:47.032Z",
+      "walletId": "2NCeRPRAscAuNL9XomzTY1CEQJJ5owkS5T1",
+      "coin": "bitcoin",
+      "type": "transaction",
+      "url": "http://31.179.138.98:8090/api/webhook/btc/check/03db41a2-7fd8-4d8b-a53e-f02e89e020f3",
+      "version": 1,
+      "numConfirmations": 2,
+      "state": "active",
+      "successiveFailedAttempts": 0
+    },
+    {
+      "id": "5a8cacd766cf05cb0783e1ef6c55bed2",
+      "created": "2018-02-20T23:18:47.858Z",
+      "walletId": "2NCeRPRAscAuNL9XomzTY1CEQJJ5owkS5T1",
+      "coin": "bitcoin",
+      "type": "pendingapproval",
+      "url": "http://31.179.138.98:8090/api/webhook/btc/info/03db41a2-7fd8-4d8b-a53e-f02e89e020f3",
+      "version": 1,
+      "state": "active",
+      "successiveFailedAttempts": 0
+    }
+  ],
+  "dataToSave": {
+    "id": "2NCeRPRAscAuNL9XomzTY1CEQJJ5owkS5T1",
+    "label": "03db41a2-7fd8-4d8b-a53e-f02e89e020f3",
+    "userKeychain": {
+      "xpub": "xpub661MyMwAqRbcFbMCn5in8dh2FJkk91fKdnEeuQFeXa2fHnwS4BmsLxP4AgTEyd9Nn1fw9aFCLndvDvHyKdhc8SWD6etgV94JbwqY9cafVNd",
+      "xprv": "xprv9s21ZrQH143K37Gjg4BmmVkHhGvFjYwUGZK471r2yEVgQzcHWeTcoA4aKRPdhyP2UoRnDewSPBezjnZN2jTfbdDfYf46YnSkRPFKJZ7HPqG",
+      "ethAddress": "0xb1f5f1eb8838e1e840def9ec9962921150658a47",
+      "encryptedXprv": "{\"iv\":\"XqiwHRSoJo+g7JfLuyDtOQ==\",\"v\":1,\"iter\":10000,\"ks\":256,\"ts\":64,\"mode\":\"ccm\",\"adata\":\"\",\"cipher\":\"aes\",\"salt\":\"L1pT3d2nHig=\",\"ct\":\"KbmJMy+Pxv6KpOq1SNibHfDuVRx1XWtP/vps1xdHx8gSEdxuC3mKFzJOZB5HKEHTZldVUTOpIUWK40lPhtXAMs/JURWQeoQgFz1CPP9IU6caoSeyeKLJAyDHcTHE0Zzi2a2guxs2hqXmVM8SOJn42dvnX3XZA/U=\"}"
+    },
+    "walletPassword": "83677e34e410bf613fad37677143132d"
+  }
+}

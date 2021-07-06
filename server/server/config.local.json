@@ -1,0 +1,48 @@
+{
+  "host": "0.0.0.0",
+  "port": 8090,
+  "round": {
+    "name": "test",
+    "limitUSD": 0,
+    "limitEUR": 0,
+    "limitETH": 0,
+    "limitBTC": 0
+  },
+  "blockchain": {
+    "connectToRealContract": true,
+    "gasLimit": 3000000,
+    "gasPrice": 3000000,
+    "host": "https://rinkeby.infura.io/v3/770fa72743a249e093e509f60d2e8eb7",
+    "wallet": "0x353998a580ce481ec6bc44d6544dfadec2f8e465",
+    "password": "123456789",
+    "privateKey": "0400bd0ec837c90a13326ebcff3c112e1b2ffe1aa03c33f0a806bcf537160924",
+    "contractAddr": "0x61a596d00c8ac443cdc21d55aec31df60d5119e2",
+    "tokenAddr": "0x6F5EE7F9Eac06a970f8bf5167b89d938c58Cd5E2",
+    "checkTransactionAfter": 5000,
+    "checkTransactionRetryNo": 30,
+    "checkContractAddressAfterBoot": 5000,
+    "checkContractAddressEvery": 50000,
+    "checkContractAddressFromBlock": 0,
+    "updateRatesInContractAfterBoot": 60000,
+    "updateRatesInContractEvery": 3600000
+  },
+  "etherscan": {
+    "apiUrl": "https://api.etherscan.io/api",
+    "apiToken": "YPE1JBFJ1R34NG7I6ZNMM1H6GRUBK9BMVS",
+    "testnet": "rinkeby"
+  },
+  "bitstamp": {
+    "apiUrl": "https://www.bitstamp.net/api/v2/ticker/",
+    "maxTime": 300000
+  },
+  "krs": {
+    "usdPrice": 1.32
+  },
+  "coinfirm": {
+    "apiURL": "https://private-anon-5af7ccf552-aml.apiary-mock.com",
+    "loginEmail": "admin@valuedao.com",
+    "pass": "@CoinfirM@03",
+    "minValidScore": 33
+  },
+  "adminEmail": "kr@nextrope.com"
+}
